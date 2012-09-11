@@ -13,14 +13,16 @@ App.EntriesController = Em.ArrayProxy.extend({
       this.deletePage(item);
     }
   },
-  addPage: function(item) {
-    this.deletePage();
+  addPage: function(item, page) {
+    var page = (!page) ? this.get('page') : page;
+    console.log(page);
+    this.deletePage(page);
     var pages = item.get('pages');
-    pages.push(this.get('page'));
+    pages.push(page);
     item.set('pages', pages);
   },
-  deletePage: function(item) {
-    var page = this.get('page');
+  deletePage: function(page) {
+    var page = (!page) ? this.get('page') : page;
     this.forEach(function(item) {
       var pages = item.get('pages').filter(function(p) {
         if(p === page) return false;

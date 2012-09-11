@@ -1,0 +1,18 @@
+<div class="clearfix well">
+  <img class="preview" src="http://ispeakvideo.s3.amazonaws.com/test/inc/ffff_screenshot_200_1.jpg" {{action "doVideo" "video"}}>
+  <div class="clearfix" style="margin-left: 95px">
+    <h1>{{name}}</h1>
+    <p>{{{filename}}}</p>
+  </div>
+</div>
+<div class="well">
+  <ul class="nav nav-list">
+  {{#each page in pages}}
+    <li><a>{{page}}<i class="icon-remove pull-right"{{action removeItem page target="this"}}></i></a></li>
+  {{/each}}
+  </ul>
+  <div class="input-append" style="margin-top: 20px; margin-left: 15px">
+    {{view view.UrlAdd itemBinding="controller"}}
+    <button class="btn" type="button">Add</button>
+  </div>
+</div>

@@ -1,6 +1,5 @@
 body {
   padding-top: 40px;
-  font-size: 11px;
 }
 
 a {
@@ -30,9 +29,10 @@ h1 {
 .icon-remove {
   cursor: pointer;
   z-index: 1000;
+  opacity: 0.4;
 }
 .icon-remove:hover {
-  background-color: #AAA;
+  opacity: 1; 
 }
 .nav .video_item {
   margin-left: 10px;

@@ -1,4 +1,5 @@
 require('ispeak/core');
+require('ispeak/models/video');
 
 App.Router = Ember.Router.extend({
   enableLogging: false,
@@ -24,8 +25,11 @@ App.Router = Ember.Router.extend({
         route: '/:video_id',
         connectOutlets: function(router, context) {
           var video = App.store.find(App.Video, context.get('id'));
-          router.get('entriesController').set('content', video);
-          router.get('applicationController').connectOutlet('video');
+          var context = router.get('entriesController');
+          //router.get('entriesController').set('content', video);
+          router.get('applicationController')
+                .connectOutlet('video', context)
+                .set('controller.content', video);
         }
       })
     }),
@@ -36,7 +40,8 @@ App.Router = Ember.Router.extend({
       route: '/help',
     }),
     doVideo: function(router, event) {
-      router.transitionTo('videos.video', event.context);
+      console.log(event);
+      router.transitionTo('root.videos.video', event.context);
     },
     doVideos: function(router, event) {
       router.transitionTo('root.index');
