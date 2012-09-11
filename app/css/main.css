@@ -31,6 +31,9 @@ h1 {
   cursor: pointer;
   z-index: 1000;
 }
+.icon-remove:hover {
+  background-color: #AAA;
+}
 .nav .video_item {
   margin-left: 10px;
   float: left;
