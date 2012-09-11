@@ -21,7 +21,7 @@ App.EntriesController = Em.ArrayProxy.extend({
   },
   deletePage: function(item) {
     var page = this.get('page');
-    this.get('content').forEach(function(item) {
+    this.forEach(function(item) {
       var pages = item.get('pages').filter(function(p) {
         if(p === page) return false;
         return true;
