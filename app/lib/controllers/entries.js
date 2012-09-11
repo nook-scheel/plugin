@@ -12,16 +12,30 @@ App.EntriesController = Em.ArrayProxy.extend({
   pageBinding: 'controllers.urlController.url',
   changePages: function(item, bool) {
     if(!bool) {
-      this.addPage(item, page);
+      this.addPage(item);
     } else {
-      this.deletePage(item, page);
+      this.deletePage(item);
     }
   },
   addPage: function(item) {
-    console.log('addPage');
+    // Delete content page
+    this.deletePage();
+
+    // Add url
+    var pages = item.get('pages');
+    pages.push(this.get('page'));
+    item.set('pages', pages);
   },
   deletePage: function(item) {
-    console.log('deletePage');
+    var page = this.get('page');
+    this.get('content').forEach(function(item) {
+      var pages = item.get('pages').filter(function(p) {
+        if(p === page) return false;
+        return true;
+      });
+      item.set('pages', pages);
+    });
+    //console.log('deletePage');
   },
   remaining: function() {
     return this.filterProperty('completed', false).get('length');
