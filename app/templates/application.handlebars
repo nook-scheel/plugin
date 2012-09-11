@@ -1,10 +1,19 @@
 <nav role="navigation" class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">ember-skeleton</a>
+      <a {{action "doVideos"}}class="brand">iSpeak</a>
+      <div class="nav-collapse">
+        <div class="pull-right">
+          <ul class="nav">
+            <li><a {{action "doChart"}}>Chart</a></li>
+            <li><a {{action "doHelp"}}>Help</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
 <div id="main" role="main" class="container">
-  ember-skeleton v{{App.VERSION}}
+  iSpeak v{{App.VERSION}}
+  {{outlet}}
 </div>

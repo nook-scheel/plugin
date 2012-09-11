@@ -1,0 +1,13 @@
+{{#each video in content}}
+<li>
+  <a class="clearfix">
+    <img class="preview" src="http://ispeakvideo.s3.amazonaws.com/test/inc/ffff_screenshot_200_1.jpg" {{action "doVideo" "video"}}>
+    <div class="video_item pull-left" {{action removeItem video target="this"}}>
+      {{video.name}}
+      <p>Показов: 23 / </p>
+    </div>
+    <div class="pull-right">
+    </div>
+  </a>
+</li>
+{{/each}}

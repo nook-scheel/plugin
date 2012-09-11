@@ -1,5 +1,5 @@
-require('ember-skeleton/core');
+require('ispeak/core');
 
 App.ApplicationView = Ember.View.extend({
-  templateName: 'ember-skeleton/~templates/application'
+  templateName: 'ispeak/~templates/application'
 });

@@ -1,1 +1,2 @@
-require('ember-skeleton/views/application');
+require('ispeak/views/application');
+require('ispeak/views/videos');

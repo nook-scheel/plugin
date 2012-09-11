@@ -1,7 +1,9 @@
-require('ember-skeleton/core');
-require('ember-skeleton/store');
-require('ember-skeleton/router');
-require('ember-skeleton/controllers');
-require('ember-skeleton/views');
+require('ispeak/core');
+require('ispeak/store');
+require('ispeak/fixtures');
+require('ispeak/models');
+require('ispeak/router');
+require('ispeak/controllers');
+require('ispeak/views');
 
 App.initialize();

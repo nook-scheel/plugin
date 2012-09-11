@@ -1,3 +1,3 @@
-require('ember-skeleton/core');
+require('ispeak/core');
 
 App.ApplicationController = Ember.Controller.extend();

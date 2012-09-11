@@ -1,0 +1,1 @@
+require('ispeak/fixtures/video');

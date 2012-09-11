@@ -2,9 +2,9 @@ require('jquery');
 require('handlebars');
 require('ember');
 require('ember-data');
-require('ember-skeleton/ext');
-require('ember-skeleton/env');
+require('ispeak/ext');
+require('ispeak/env');
 
 App = Ember.Application.create({
-  VERSION: '0.1'
+  VERSION: '1.0.beta.1'
 });
