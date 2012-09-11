@@ -11,15 +11,12 @@ App.ChangeButton = Ember.View.extend({
       if(pages[page] ===  this.get('url')) return true;
     return false;
   }.property('content.pages.@each', 'url'), 
-  
   btn: function(){
     return this.get('isActive') ? 'btn-inverse' : 'btn-success';
   }.property('isActive', 'url'),
-  
   text: function() {
     return this.get('isActive') ? 'Delete' : 'Add';
   }.property('isActive', 'controllers.urlController.url'),
-
   template: Ember.Handlebars.compile('{{view.text}}'),
   click: function(event) {
     this._super(event);

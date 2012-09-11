@@ -3,10 +3,6 @@ require('ispeak/core');
 App.EntriesController = Em.ArrayProxy.extend({
   contentBinding: 'controller.content',
   removeObject: function(item) {
-    //this.get('controller.content').removeObject(
-    //  event.context
-    //);
-    //console.log(event);
     return this._super(item);
   },
   pageBinding: 'controllers.urlController.url',
@@ -18,10 +14,7 @@ App.EntriesController = Em.ArrayProxy.extend({
     }
   },
   addPage: function(item) {
-    // Delete content page
     this.deletePage();
-
-    // Add url
     var pages = item.get('pages');
     pages.push(this.get('page'));
     item.set('pages', pages);
@@ -35,7 +28,6 @@ App.EntriesController = Em.ArrayProxy.extend({
       });
       item.set('pages', pages);
     });
-    //console.log('deletePage');
   },
   remaining: function() {
     return this.filterProperty('completed', false).get('length');
