@@ -9,20 +9,18 @@ App.EntriesController = Em.ArrayProxy.extend({
     //console.log(event);
     return this._super(item);
   },
+  pageBinding: 'controllers.urlController.url',
   changePages: function(item, bool) {
-    var page = this.get('controllers.urlController.url');
-    //var contentPages = item.get('pages');
-    //console.log(contentPages);
-    if(bool) {
+    if(!bool) {
       this.addPage(item, page);
     } else {
       this.deletePage(item, page);
     }
   },
-  addPage: function(item, page) {
+  addPage: function(item) {
     console.log('addPage');
   },
-  deletePage: function(item, page) {
+  deletePage: function(item) {
     console.log('deletePage');
   },
   remaining: function() {
