@@ -1,4 +1,4 @@
-APPNAME = 'ember-skeleton'
+APPNAME = 'ispeak'
 
 require 'colored'
 require 'rake-pipeline'

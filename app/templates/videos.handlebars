@@ -2,13 +2,16 @@
 <li>
   <a class="clearfix">
     <img class="preview" src="http://ispeakvideo.s3.amazonaws.com/test/inc/ffff_screenshot_200_1.jpg" {{action "doVideo" "video"}}>
-    <div class="video_item pull-left" {{action "doVideo" "video"}}>
+    <div class="video_item pull-left" style="width: 160px;" {{action "doVideo" "video"}}>
       {{video.name}}
-      <p>Показов: 23 / </p>
+      <p>Осталось: {{video.views_left}}</p>
+      {{#if video.e_d}}
+        <p>До: {{video.e_d}}</p>
+      {{/if}}
     </div>
     <div class="pull-right">
       <div><i class="icon-remove pull-right show" {{action removeItem video target="this"}}></i></div>
-      {{view App.ChangeButton target="this" contentBinding="video"}}
+      {{view App.ChangeButton pagesBinding="video.pages" contentBinding="video"}}
     </div>
   </a>
 </li>

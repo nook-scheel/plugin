@@ -18,6 +18,9 @@ App.Router = Ember.Router.extend({
         connectOutlets: function(router, event) {
           var controller = router.get('applicationController');
           var context = router.get('entriesController');
+          var content = App.store.findAll(App.Video);
+          context.set('filterBy', '');
+          context.set('content', content);
           controller.connectOutlet('videos', context);
         }
       }),

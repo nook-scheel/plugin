@@ -1,7 +1,9 @@
 require('jquery');
+require('sugar');
 require('handlebars');
 require('ember');
 require('ember-data');
+require('flotr2.min');
 require('ispeak/ext');
 require('ispeak/env');
 

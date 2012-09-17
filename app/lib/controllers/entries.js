@@ -6,24 +6,37 @@ App.EntriesController = Em.ArrayProxy.extend({
     return this._super(item);
   },
   pageBinding: 'controllers.urlController.url',
-  changePages: function(item, bool) {
+  changePagesInVideo: function(video, bool, cl) {
     if(!bool) {
-      this.addPage(item);
+      console.log('add');
+      this.addPageInVideo(video, false, cl);
     } else {
-      this.deletePage(item);
+      console.log('delete');
+      this.deletePageInVideo(video, false, cl);
     }
   },
-  addPage: function(item, page) {
+  addPageInVideo: function(video, page, cl) {
+    //this.deletePageInVideo(video, page, cl);
     var page = (!page) ? this.get('page') : page;
-    console.log(page);
-    this.deletePage(page);
-    var pages = item.get('pages');
+    var pages = video.get('pages');
     pages.push(page);
-    item.set('pages', pages);
+
+    if(typeof cl === 'function')
+      cl(pages);
   },
-  deletePage: function(page) {
+  deletePageInVideo: function(video, page, cl) {
+    // Удаление ссылки из видео
     var page = (!page) ? this.get('page') : page;
-    this.forEach(function(item) {
+    var pages = video.get('pages').filter(function(p) {
+      if(p === page) return false;
+      return true;
+    });
+
+    if(typeof cl === 'function')
+      cl(pages);
+
+    // Удаление ссылки из всех видео
+    App.store.findAll(App.Video).forEach(function(item) {
       var pages = item.get('pages').filter(function(p) {
         if(p === page) return false;
         return true;
